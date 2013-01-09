@@ -16,7 +16,7 @@ exports.statusShow = function(req, res, next) {
     
     twitHandle.get('/statuses/show/'+req.params.id+'.json', {include_entities:true}, function(err, data) {
         if(err) return next(err);
-        res.setHeader('Access-Control-Allow-Origin:', '*');
+        res.setHeader('Access-Control-Allow-Origin', '*');
         res.send(data);
     });
     

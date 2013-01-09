@@ -33,6 +33,11 @@ app.configure('development', function(){
 app.get('/', routes.index);
 app.get('/statuses/show/:id', api.statusShow);
 
+app.get('*', function(req,res) {
+    res.setHeader('Access-Control-Allow-Origin','*')
+    res.send('resource not found.', 404);
+});
+
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
 });
